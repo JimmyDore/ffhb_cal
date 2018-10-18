@@ -8,7 +8,7 @@ static/*
 ffhb_cal_app/bin/*
 ffhb_cal_app/include/*
 ffhb_cal_app/lib/*
-ffhb_cal_app/lib64/*
+ffhb_cal_app/lib64
 ffhb_cal_app/__pycache__
 ffhb_cal_app/share/*
 ffhb_cal_app/pyvenv.cfg
