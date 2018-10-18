@@ -4,6 +4,8 @@ media/*.*
 static/*.*
 static/*
 */migrations
+*.pyc
+*/.pyc
 */*.pyc
 ffhb_venv/*
 
