@@ -11,4 +11,3 @@ installer les dépendances
 
 lancer le script
 - python scrap_calendar.py
-
