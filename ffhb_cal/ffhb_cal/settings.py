@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
+from . import conf
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -27,10 +30,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
+    'ffhb_cal_app.apps.FfhbCalAppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -78,17 +81,23 @@ WSGI_APPLICATION = 'ffhb_cal.wsgi.application'
 #        'ENGINE': 'django.db.backends.sqlite3',
 #        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #    }
+
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
             'NAME': 'ffhb_cal_db',
             'HOST': '127.0.0.1', #Par défaut
             'PORT': '3306', #Par défaut
-            'USER': '<user_mysql>',
-            'PASSWORD': '<password>',
+            'USER': conf.USERNAME_MYSQL,
+            'PASSWORD': conf.PASSWORD_MYSQL,
         }
     }
 
+
+# Import de la conf locale dans la conf globale de django
+HOST_FTP = conf.HOST_FTP
+USERNAME_FTP = conf.USERNAME_FTP
+PASSWORD_FTP = conf.PASSWORD_FTP
 
 
 # Password validation

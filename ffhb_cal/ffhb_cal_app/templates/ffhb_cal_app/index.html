@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <h2>Trouve les résultats et exporte le calendrier du club de hand de ton choix ! </h2>
+
+        <form method="POST" action="{% url 'tags.views.home' %}">{% csrf_token %}
+            Nom du club:
+            <input type="text" name="clubname" value="HBC Nantes">
+            <br><br>
+            <input type="submit" value="Envoyer">
+        </form> 
+
+        {% if clubname %}<p>{{clubname}} http://jimmydore.fr/hbcn_calendar.ics </p>{% endif %}
+    </body>
+</html>
