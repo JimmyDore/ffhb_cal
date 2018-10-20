@@ -1,13 +1,55 @@
-# scrap_webcalendar
+Application réalisée avec le framework Django, Python 3.6
+déployée à l'aide de gunicorn et nginx, sur un VPS Ubuntu Server 18.04 
 
-after cloning the project, go into the app and create virtual env 
-- python3 -m venv ffhb_cal_app
+Exctraction des données "Compétitions" du site de la fédération française de handball : http://www.ff-handball.org/competitions 
 
-activer le virtual env
-- source scrap_webcalendar/bin/activate
+On veut centraliser les données de tous les matchs de hand de la fédération (matchs départementaux, régionaux, nationaux, du plus bas au plus niveau en france)
 
-installer les dépendances
-- pip install -r requirements.txt
+Deux fonctionnalités principales : 
+- Récupérer le calendrier de son équipe (ou de n'importe quelle équipe en France) afin de l'importer dans son outil de calendrier personnel (Google Calendar dans mon cas). On va donc générer un lien pointant vers un fichier.ics : il faudra ajouter ce lien à vos agendas. La synchronisation avec les véritables données peuvent être de 24 à 48h.
+- Datavisualisation complète et analyse exploratoire de données provenant du hand amateur et professionel français.
 
-lancer le script
-- python scrap_calendar.py
+# Install app
+1) Install mysql on server : 
+Tutorial : https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04
+
+2) Clone the project and go into it: 
+```console
+jimmydore@ubuntu:~/Projets$ git clone https://github.com/JimmyDore/ffhb_cal.git
+jimmydore@ubuntu:~/Projets$ cd ffhb_cal/
+```
+3) Install python3 and virtualenv if not already done, and create a virtual env
+```console
+jimmydore@ubuntu:~/Projets/ffhb_cal$ sudo apt-get install python3-venv
+jimmydore@ubuntu:~/Projets/ffhb_cal$ python3 -m venv ffhb_venv
+```
+
+4) Create database in mysql
+```console
+jimmydore@ubuntu:~/Projets/ffhb_cal$ mysql -u root -p
+mysql> create database if not exists ffhb_cal_db character set UTF8mb4 collate utf8mb4_bin;
+Query OK, 1 row affected (0.00 sec)
+mysql> exit;
+```
+> **Note:** **Never** push conf.local.py Push conf.py if only new fields in the file
+
+
+5) Lancer le script d'installation
+
+```console
+jimmydore@ubuntu:~/Projets/ffhb_cal$ ./install.sh
+```
+
+Run locally :
+```console
+(ffhb_venv) jimmydore@jimmydore-XPS-13-9360:~/Documents/Projets_perso/ffhb_cal/ffhb_cal$ python manage.py runserver 8000
+```
+
+Run on a server :
+Plusieurs tutoriels existent pour installer un projet Django sur un serveur. J'ai personnellement choisi gunicorn couplé avec nginx :
+- https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-18-04
+- https://tutos.readthedocs.io/en/latest/source/ndg.html
+
+Le fichier de conf de gunicorn est le fichier **gunicorn_start.sh**
+Le fichier de conf de nginx est le fichier **nginx_conf**
+Le dernier fichier est le fichier de service pour gunicorn et cette app, afin de deamoniser le process **gunicorn_ffhb_cal.service**
