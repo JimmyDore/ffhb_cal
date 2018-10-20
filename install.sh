@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git pull origin master
+git pull
 cd ffhb_cal || exit
 cp ffhb_cal/conf.local.py ffhb_cal/conf.py
 source ../ffhb_venv/bin/activate
