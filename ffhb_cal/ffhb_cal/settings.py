@@ -28,7 +28,7 @@ SECRET_KEY = '97tn!mm#ovdjx*(g85$50f#tknq08c+j$k4hepcdz1z#s*dwb!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = conf.DEBUG
 
-ALLOWED_HOSTS = ['127.0.0.1','localhost','ffhb.jimmydore.fr','www.ffhb.jimmydore.fr']
+ALLOWED_HOSTS = ['127.O.0.1','localhost','ffhb.jimmydore.fr','www.ffhb.jimmydore.fr','www.jimmydore.fr','www.jimmydore.fr']
 # Application definition
 
 INSTALLED_APPS = [
