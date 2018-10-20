@@ -1,0 +1,52 @@
+server {
+        listen 80;
+
+        server_name ffhb.jimmydore.fr www.ffhb.jimmydore.fr;
+
+        client_max_body_size 4G;
+
+        location /static/ {
+                autoindex on;
+                alias  /home/jimmydore/Projets/ffhb_cal/ffhb_cal/static/;
+        }
+
+        location /media/ {
+                autoindex on;
+                alias   /home/jimmydore/Projets/ffhb_cal/ffhb_cal/media/;
+        }
+
+        location / {
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header Host $http_host;
+                proxy_redirect off;
+
+                if (!-f $request_filename) {
+                        proxy_pass http://test_server;
+                }
+        }
+
+        #For favicon
+        location  /favicon.ico {
+                alias /home/jimmydore/Projets/ffhb_cal/ffhb_cal/static/img/favicon.ico;
+        }
+
+        #For robots.txt
+        location  /robots.txt {
+                alias /home/jimmydore/Projets/ffhb_cal/ffhb_cal/static/robots.txt;
+        }
+}
+
+upstream test_server {
+        server unix:/home/jimmydore/sockets/run/gunicorn.sock fail_timeout=10s;
+}
+
+# This is not neccessary - it's just commonly used
+# it just redirects example.com -> www.example.com
+# so it isn't treated as two separate websites
+#server {
+#        listen 8080;
+#        server_name jimmydore.fr www.jimmydore.fr;
+#        return 301 $scheme://www.jimmydore.fr/ffhb$request_uri;
+#}
+
+

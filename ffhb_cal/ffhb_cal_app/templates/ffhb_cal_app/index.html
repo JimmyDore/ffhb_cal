@@ -10,7 +10,8 @@
             <br><br>
             <input type="submit" value="Envoyer">
         </form> 
-
+	{% load static %}
+	<img src="{% static "/coucou.png"%}" width="50" height="50">
         {% if clubname %}<p>{{clubname}} http://jimmydore.fr/hbcn_calendar.ics </p>{% endif %}
     </body>
 </html>

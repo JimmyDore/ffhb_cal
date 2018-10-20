@@ -101,8 +101,9 @@ def getICS(calendar_hbcn):
 
 def sendFileToFTPServer():
     session = ftplib.FTP(settings.HOST_FTP,settings.USERNAME_FTP,settings.PASSWORD_FTP)
-    file = open('ics_ffhb/hbcn_calendar.ics','rb')                  # file to send
-    session.storbinary('STOR ics_ffhb/hbcn_calendar.ics', file)     # send the file
+    session.cwd('/ics_ffhb')
+    file = open('hbcn_calendar.ics','rb')                  # file to send
+    session.storbinary('STOR hbcn_calendar.ics', file)     # send the file
     file.close()                                                    # close file and FTP
     session.quit()
 

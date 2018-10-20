@@ -1,0 +1,10 @@
+[Unit]
+Description=ffhb_cal gunicorn daemon
+
+[Service]
+User=jimmydore
+Type=simple
+ExecStart=/home/jimmydore/Projets/ffhb_cal/gunicorn_start.sh
+
+[Install]
+WantedBy=multi-user.target

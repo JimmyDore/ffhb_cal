@@ -28,8 +28,7 @@ SECRET_KEY = '97tn!mm#ovdjx*(g85$50f#tknq08c+j$k4hepcdz1z#s*dwb!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = conf.DEBUG
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['127.0.0.1','localhost','ffhb.jimmydore.fr','www.ffhb.jimmydore.fr']
 # Application definition
 
 INSTALLED_APPS = [
@@ -137,3 +136,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"), )
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = '/media/'
+ADMIN_MEDIA_PREFIX = '/media/admin/'
+
+
