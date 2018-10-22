@@ -28,13 +28,7 @@ SECRET_KEY = '97tn!mm#ovdjx*(g85$50f#tknq08c+j$k4hepcdz1z#s*dwb!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = conf.DEBUG
 
-ALLOWED_HOSTS = [
-    '127.O.0.1',
-    'localhost',
-    'ffhb.jimmydore.fr',
-    'www.ffhb.jimmydore.fr',
-    'www.jimmydore.fr',
-    'www.jimmydore.fr']
+ALLOWED_HOSTS = ['127.O.0.1','localhost','ffhb.jimmydore.fr','www.ffhb.jimmydore.fr','www.jimmydore.fr','www.jimmydore.fr']
 # Application definition
 
 INSTALLED_APPS = [
@@ -45,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -82,22 +75,22 @@ WSGI_APPLICATION = 'ffhb_cal.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-# DATABASES = {
+#DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.sqlite3',
 #        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #    }
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ffhb_cal_db',
-        'HOST': '127.0.0.1',  # Par défaut
-        'PORT': '3306',  # Par défaut
-        'USER': conf.USERNAME_MYSQL,
-        'PASSWORD': conf.PASSWORD_MYSQL,
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'ffhb_cal_db',
+            'HOST': '127.0.0.1', #Par défaut
+            'PORT': '3306', #Par défaut
+            'USER': conf.USERNAME_MYSQL,
+            'PASSWORD': conf.PASSWORD_MYSQL,
+        }
     }
-}
 
 
 # Import de la conf locale dans la conf globale de django
@@ -154,8 +147,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = '/media/'
 ADMIN_MEDIA_PREFIX = '/media/admin/'
 
-# TO GENERATE THE UML CHART
-GRAPH_MODELS = {
-    'all_applications': True,
-    'group_models': True,
-}
+
