@@ -18,6 +18,12 @@ Tutorial (worked perfectyly on Ubuntu 18.04) : https://www.digitalocean.com/comm
 Tutorial (worked perfectyly on Ubuntu 18.04) : https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04
 > **WARNING:** You must install a DB engine compatible with your system
 
+1bis) for example for postgresql : 
+```console
+jimmydore@ubuntu:~/Projets$ sudo apt install postgresql postgresql-contrib
+jimmydore@ubuntu:~/Projets$ sudo -u postgres createuser --interactive
+jimmydore@ubuntu:~/Projets$ sudo -u postgres createdb jimmydore
+```
 
 2) Clone the project and go into it: 
 ```console
@@ -32,12 +38,16 @@ jimmydore@ubuntu:~/Projets/ffhb_cal$ python3 -m venv ffhb_venv # call it myvenv 
 ```
 
 4) Create database in mysql or postgresql
+
+- MySQL
 ```console
 jimmydore@ubuntu:~/Projets/ffhb_cal$ mysql -u root -p
 mysql> create database if not exists ffhb_cal_db character set UTF8mb4 collate utf8mb4_bin;
 Query OK, 1 row affected (0.00 sec)
 mysql> exit;
 ```
+
+- PostGreSQL
 ```console
 jimmydore@ubuntu:~/Projets/ffhb_cal$ sudo -u jimmydore psql
 psql (10.5 (Ubuntu 10.5-0ubuntu0.18.04))
@@ -47,7 +57,19 @@ jimmydore=# CREATE DATABASE "ffhb_cal_db"
     WITH OWNER "jimmydore"
     ENCODING 'UTF8'
     LC_COLLATE = 'fr_FR.UTF-8'
-    LC_CTYPE = 'fr_FR.UTF-8';
+    LC_CTYPE = 'fr_FR.UTF-8'
+    TEMPLATE = template0;
+```
+> **Note:** **Warning** it's possible that the locales fr_FR.UTF-8 are not installed on the server (https://askubuntu.com/questions/76013/how-do-i-add-locale-to-ubuntu-server)(This one worked : https://www.quennec.fr/trucs-astuces/syst%C3%A8mes/gnulinux/commandes/ubuntu-server/locale-fran%C3%A7aise-sur-ubuntu-server) 
+:
+```console
+jimmydore@ubuntu:~/Projets/ffhb_cal$ sudo su
+root@ubuntu:~/Projets/ffhb_cal$ apt-get install language-pack-fr
+root@ubuntu:~/Projets/ffhb_cal$ if [ -f /etc/default/locale ]; then cp /etc/default/locale /etc/default/locale_default; fi
+root@ubuntu:~/Projets/ffhb_cal$ echo "LANG=fr_FR.UTF-8" > /etc/default/locale
+root@ubuntu:~/Projets/ffhb_cal$ cat /etc/default/locale
+LANG=fr_FR.UTF-8
+root@ubuntu:~/Projets/ffhb_cal$ dpkg-reconfigure locales
 ```
 
 5) Create conf.local.py from conf.py in django project folder
@@ -58,20 +80,26 @@ jimmydore@ubuntu:~/Projets/ffhb_cal/ffhb_cal/ffhb_cal$ vim conf.local.py #Here, 
 ```
 > **Note:** **Never** push conf.local.py and push conf.py if only new fields in the file
 
+6) Création du superutilisateur pour le projet django
 
-5) Lancer le script d'installation
+```console
+jimmydore@ubuntu:~/Projets/ffhb_cal$ source ffhb_venv/bin/activate
+(ffhb_venv) jimmydore@ubuntu:~/Projets/ffhb_cal$ python ffhb_cal/manage.py createsuperuser
+```
+
+7) Lancer le script d'installation
 
 ```console
 jimmydore@ubuntu:~/Projets/ffhb_cal$ ./install.sh
 ```
 
-6) Run the app
-Run locally :
+8) Run the app
+- Run locally :
 ```console
 (ffhb_venv) jimmydore@jimmydore-XPS-13-9360:~/Documents/Projets_perso/ffhb_cal/ffhb_cal$ python manage.py runserver 8000
 ```
 
-Run on a server :
+- Run on a server :
 Plusieurs tutoriels existent pour installer un projet Django sur un serveur. J'ai personnellement choisi gunicorn couplé avec nginx :
 - https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-18-04
 - https://tutos.readthedocs.io/en/latest/source/ndg.html
@@ -98,7 +126,6 @@ In the virtualenv of the Django project, you can make a lot of useful commands :
 (myvenv) jimmydore@jimmydore-XPS-13-9360:~/Documents/Projets_perso/ffhb_cal/ffhb_cal$ python manage.py run server 8000 #just type which port you want
 ```
 
-
 - Generate UML File from your model database (already in git hook, you don't need to do it)
 ```console
 (myvenv) jimmydore@jimmydore-XPS-13-9360:~/Documents/Projets_perso/ffhb_cal/ffhb_cal$ ./manage.py graph_models -a > ../ffhb_cal_UML.dot; dot ../ffhb_cal_UML.dot -Tpng -o ../ffhb_cal_UML.png
@@ -106,7 +133,7 @@ In the virtualenv of the Django project, you can make a lot of useful commands :
 
 - Go into psql console
 ```console
-jimmydore@jimmydore-XPS-13-9360:~/Documents/Projets_perso/ffhb_cal$ sudo -u postgres psql
+jimmydore@jimmydore-XPS-13-9360:~/Documents/Projets_perso/ffhb_cal$ sudo -u postgres psql #postgres is the username
 ```
 
 - change password of DB user
@@ -121,10 +148,11 @@ postgres=# ALTER USER jimmydore WITH PASSWORD '<your-password>';
 ```
 
 
- #External tools
+ # External tools
 
  - **Trello** for project planning : https://trello.com/ 
  - **SQLectronGUI** for databases : https://sqlectron.github.io/ 
  - **GitHub** for source version control : https://github.com/JimmyDore/ 
  - **Docs.Django** is a really nice doc for django : https://docs.djangoproject.com/ 
  - **Google Calendar** has been used to test ICS files : https://calendar.google.com/
+ - **VisualStudio Code** IDE : Todo list, preview md ... https://visualstudio.microsoft.com/fr/

@@ -13,6 +13,7 @@ ffhb_cal/ffhb_cal/__pycache__/*.pyc
 ffhb_cal/ffhb_cal/__pycache__/*
 ffhb_cal/static
 ffhb_cal/ffhb_cal/conf.local.py
+ffhb_cal/ffhb_cal/conf.backup_repo.py
 .vscode/
 hbcn_calendar.ics
 ffhb_cal/hbcn_calendar.ics

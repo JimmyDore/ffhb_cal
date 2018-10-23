@@ -1,6 +1,6 @@
 digraph model_graph {
   // Dotfile by Django-Extensions graph_models
-  // Created: 2018-10-22 23:26
+  // Created: 2018-10-23 15:49
   // Cli Options: -a
 
   fontname = "Helvetica"
@@ -31,6 +31,172 @@ digraph model_graph {
           >
     color=olivedrab4
     style="rounded"
+  
+    ffhb_cal_app_models_Competition [label=<
+      <TABLE BGCOLOR="palegoldenrod" BORDER="0" CELLBORDER="0" CELLSPACING="0">
+      <TR><TD COLSPAN="2" CELLPADDING="4" ALIGN="CENTER" BGCOLOR="olivedrab4">
+      <FONT FACE="Helvetica Bold" COLOR="white">
+      Competition
+      </FONT></TD></TR>
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica Bold">id</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica Bold">AutoField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">nom</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">CharField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">type</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">CharField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">url</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">CharField</FONT>
+      </TD></TR>
+    
+    
+      </TABLE>
+      >]
+  
+    ffhb_cal_app_models_PouleGen [label=<
+      <TABLE BGCOLOR="palegoldenrod" BORDER="0" CELLBORDER="0" CELLSPACING="0">
+      <TR><TD COLSPAN="2" CELLPADDING="4" ALIGN="CENTER" BGCOLOR="olivedrab4">
+      <FONT FACE="Helvetica Bold" COLOR="white">
+      PouleGen
+      </FONT></TD></TR>
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica Bold">id</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica Bold">AutoField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica Bold">competition</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica Bold">ForeignKey (id)</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">nom</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">CharField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">url</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">CharField</FONT>
+      </TD></TR>
+    
+    
+      </TABLE>
+      >]
+  
+    ffhb_cal_app_models_Poule [label=<
+      <TABLE BGCOLOR="palegoldenrod" BORDER="0" CELLBORDER="0" CELLSPACING="0">
+      <TR><TD COLSPAN="2" CELLPADDING="4" ALIGN="CENTER" BGCOLOR="olivedrab4">
+      <FONT FACE="Helvetica Bold" COLOR="white">
+      Poule
+      </FONT></TD></TR>
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica Bold">id</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica Bold">AutoField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica Bold">poule_gen</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica Bold">ForeignKey (id)</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">end_date</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">DateTimeField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">ffhb_id</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">CharField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">last_updated_buteurs</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">DateTimeField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">last_updated_classement</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">DateTimeField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">name</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">CharField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">start_date</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">DateTimeField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">url</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">CharField</FONT>
+      </TD></TR>
+    
+    
+      </TABLE>
+      >]
   
     ffhb_cal_app_models_Departement [label=<
       <TABLE BGCOLOR="palegoldenrod" BORDER="0" CELLBORDER="0" CELLSPACING="0">
@@ -100,56 +266,6 @@ digraph model_graph {
       </TABLE>
       >]
   
-    ffhb_cal_app_models_Club [label=<
-      <TABLE BGCOLOR="palegoldenrod" BORDER="0" CELLBORDER="0" CELLSPACING="0">
-      <TR><TD COLSPAN="2" CELLPADDING="4" ALIGN="CENTER" BGCOLOR="olivedrab4">
-      <FONT FACE="Helvetica Bold" COLOR="white">
-      Club
-      </FONT></TD></TR>
-    
-    
-      <TR><TD ALIGN="LEFT" BORDER="0">
-      <FONT FACE="Helvetica Bold">id</FONT>
-      </TD><TD ALIGN="LEFT">
-      <FONT FACE="Helvetica Bold">AutoField</FONT>
-      </TD></TR>
-    
-    
-    
-      <TR><TD ALIGN="LEFT" BORDER="0">
-      <FONT FACE="Helvetica Bold">departement</FONT>
-      </TD><TD ALIGN="LEFT">
-      <FONT FACE="Helvetica Bold">ForeignKey (id)</FONT>
-      </TD></TR>
-    
-    
-    
-      <TR><TD ALIGN="LEFT" BORDER="0">
-      <FONT FACE="Helvetica Bold">region</FONT>
-      </TD><TD ALIGN="LEFT">
-      <FONT FACE="Helvetica Bold">ForeignKey (id)</FONT>
-      </TD></TR>
-    
-    
-    
-      <TR><TD ALIGN="LEFT" BORDER="0">
-      <FONT FACE="Helvetica ">name</FONT>
-      </TD><TD ALIGN="LEFT">
-      <FONT FACE="Helvetica ">CharField</FONT>
-      </TD></TR>
-    
-    
-    
-      <TR><TD ALIGN="LEFT" BORDER="0">
-      <FONT FACE="Helvetica ">poule</FONT>
-      </TD><TD ALIGN="LEFT">
-      <FONT FACE="Helvetica ">CharField</FONT>
-      </TD></TR>
-    
-    
-      </TABLE>
-      >]
-  
     ffhb_cal_app_models_ICSFile [label=<
       <TABLE BGCOLOR="palegoldenrod" BORDER="0" CELLBORDER="0" CELLSPACING="0">
       <TR><TD COLSPAN="2" CELLPADDING="4" ALIGN="CENTER" BGCOLOR="olivedrab4">
@@ -192,11 +308,11 @@ digraph model_graph {
       </TABLE>
       >]
   
-    ffhb_cal_app_models_Poule [label=<
+    ffhb_cal_app_models_Club [label=<
       <TABLE BGCOLOR="palegoldenrod" BORDER="0" CELLBORDER="0" CELLSPACING="0">
       <TR><TD COLSPAN="2" CELLPADDING="4" ALIGN="CENTER" BGCOLOR="olivedrab4">
       <FONT FACE="Helvetica Bold" COLOR="white">
-      Poule
+      Club
       </FONT></TD></TR>
     
     
@@ -209,7 +325,15 @@ digraph model_graph {
     
     
       <TR><TD ALIGN="LEFT" BORDER="0">
-      <FONT FACE="Helvetica Bold">url</FONT>
+      <FONT FACE="Helvetica Bold">departement</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica Bold">ForeignKey (id)</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica Bold">ics_file</FONT>
       </TD><TD ALIGN="LEFT">
       <FONT FACE="Helvetica Bold">OneToOneField (id)</FONT>
       </TD></TR>
@@ -217,17 +341,9 @@ digraph model_graph {
     
     
       <TR><TD ALIGN="LEFT" BORDER="0">
-      <FONT FACE="Helvetica ">division</FONT>
+      <FONT FACE="Helvetica Bold">region</FONT>
       </TD><TD ALIGN="LEFT">
-      <FONT FACE="Helvetica ">CharField</FONT>
-      </TD></TR>
-    
-    
-    
-      <TR><TD ALIGN="LEFT" BORDER="0">
-      <FONT FACE="Helvetica ">end_date</FONT>
-      </TD><TD ALIGN="LEFT">
-      <FONT FACE="Helvetica ">DateTimeField</FONT>
+      <FONT FACE="Helvetica Bold">ForeignKey (id)</FONT>
       </TD></TR>
     
     
@@ -241,23 +357,7 @@ digraph model_graph {
     
     
       <TR><TD ALIGN="LEFT" BORDER="0">
-      <FONT FACE="Helvetica ">start_date</FONT>
-      </TD><TD ALIGN="LEFT">
-      <FONT FACE="Helvetica ">DateTimeField</FONT>
-      </TD></TR>
-    
-    
-    
-      <TR><TD ALIGN="LEFT" BORDER="0">
-      <FONT FACE="Helvetica ">type_agenda</FONT>
-      </TD><TD ALIGN="LEFT">
-      <FONT FACE="Helvetica ">CharField</FONT>
-      </TD></TR>
-    
-    
-    
-      <TR><TD ALIGN="LEFT" BORDER="0">
-      <FONT FACE="Helvetica ">type_club</FONT>
+      <FONT FACE="Helvetica ">poule</FONT>
       </TD><TD ALIGN="LEFT">
       <FONT FACE="Helvetica ">CharField</FONT>
       </TD></TR>
@@ -266,11 +366,11 @@ digraph model_graph {
       </TABLE>
       >]
   
-    ffhb_cal_app_models_Match [label=<
+    ffhb_cal_app_models_Classement [label=<
       <TABLE BGCOLOR="palegoldenrod" BORDER="0" CELLBORDER="0" CELLSPACING="0">
       <TR><TD COLSPAN="2" CELLPADDING="4" ALIGN="CENTER" BGCOLOR="olivedrab4">
       <FONT FACE="Helvetica Bold" COLOR="white">
-      Match
+      Classement
       </FONT></TD></TR>
     
     
@@ -283,15 +383,7 @@ digraph model_graph {
     
     
       <TR><TD ALIGN="LEFT" BORDER="0">
-      <FONT FACE="Helvetica Bold">club_domicile</FONT>
-      </TD><TD ALIGN="LEFT">
-      <FONT FACE="Helvetica Bold">ForeignKey (id)</FONT>
-      </TD></TR>
-    
-    
-    
-      <TR><TD ALIGN="LEFT" BORDER="0">
-      <FONT FACE="Helvetica Bold">club_exterieur</FONT>
+      <FONT FACE="Helvetica Bold">club</FONT>
       </TD><TD ALIGN="LEFT">
       <FONT FACE="Helvetica Bold">ForeignKey (id)</FONT>
       </TD></TR>
@@ -307,23 +399,7 @@ digraph model_graph {
     
     
       <TR><TD ALIGN="LEFT" BORDER="0">
-      <FONT FACE="Helvetica ">date</FONT>
-      </TD><TD ALIGN="LEFT">
-      <FONT FACE="Helvetica ">DateTimeField</FONT>
-      </TD></TR>
-    
-    
-    
-      <TR><TD ALIGN="LEFT" BORDER="0">
-      <FONT FACE="Helvetica ">localisation</FONT>
-      </TD><TD ALIGN="LEFT">
-      <FONT FACE="Helvetica ">CharField</FONT>
-      </TD></TR>
-    
-    
-    
-      <TR><TD ALIGN="LEFT" BORDER="0">
-      <FONT FACE="Helvetica ">score_club_domicile</FONT>
+      <FONT FACE="Helvetica ">diff</FONT>
       </TD><TD ALIGN="LEFT">
       <FONT FACE="Helvetica ">IntegerField</FONT>
       </TD></TR>
@@ -331,7 +407,7 @@ digraph model_graph {
     
     
       <TR><TD ALIGN="LEFT" BORDER="0">
-      <FONT FACE="Helvetica ">score_club_exterieur</FONT>
+      <FONT FACE="Helvetica ">nb_draw</FONT>
       </TD><TD ALIGN="LEFT">
       <FONT FACE="Helvetica ">IntegerField</FONT>
       </TD></TR>
@@ -339,17 +415,57 @@ digraph model_graph {
     
     
       <TR><TD ALIGN="LEFT" BORDER="0">
-      <FONT FACE="Helvetica ">type_date</FONT>
+      <FONT FACE="Helvetica ">nb_goals_scored</FONT>
       </TD><TD ALIGN="LEFT">
-      <FONT FACE="Helvetica ">CharField</FONT>
+      <FONT FACE="Helvetica ">IntegerField</FONT>
       </TD></TR>
     
     
     
       <TR><TD ALIGN="LEFT" BORDER="0">
-      <FONT FACE="Helvetica ">url_feuille_match</FONT>
+      <FONT FACE="Helvetica ">nb_goals_taken</FONT>
       </TD><TD ALIGN="LEFT">
-      <FONT FACE="Helvetica ">CharField</FONT>
+      <FONT FACE="Helvetica ">IntegerField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">nb_lost</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">IntegerField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">nb_matchs</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">IntegerField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">nb_wins</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">IntegerField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">position</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">IntegerField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">pts</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">IntegerField</FONT>
       </TD></TR>
     
     
@@ -406,11 +522,11 @@ digraph model_graph {
       </TABLE>
       >]
   
-    ffhb_cal_app_models_ClubJoueur [label=<
+    ffhb_cal_app_models_ClassementButeurs [label=<
       <TABLE BGCOLOR="palegoldenrod" BORDER="0" CELLBORDER="0" CELLSPACING="0">
       <TR><TD COLSPAN="2" CELLPADDING="4" ALIGN="CENTER" BGCOLOR="olivedrab4">
       <FONT FACE="Helvetica Bold" COLOR="white">
-      ClubJoueur
+      ClassementButeurs
       </FONT></TD></TR>
     
     
@@ -439,7 +555,211 @@ digraph model_graph {
     
     
       <TR><TD ALIGN="LEFT" BORDER="0">
-      <FONT FACE="Helvetica ">date_end_club</FONT>
+      <FONT FACE="Helvetica Bold">poule</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica Bold">ForeignKey (id)</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">average</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">IntegerField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">nb_games</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">IntegerField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">nb_goals</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">IntegerField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">position</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">IntegerField</FONT>
+      </TD></TR>
+    
+    
+      </TABLE>
+      >]
+  
+    ffhb_cal_app_models_Match [label=<
+      <TABLE BGCOLOR="palegoldenrod" BORDER="0" CELLBORDER="0" CELLSPACING="0">
+      <TR><TD COLSPAN="2" CELLPADDING="4" ALIGN="CENTER" BGCOLOR="olivedrab4">
+      <FONT FACE="Helvetica Bold" COLOR="white">
+      Match
+      </FONT></TD></TR>
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica Bold">id</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica Bold">AutoField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica Bold">club_domicile</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica Bold">ForeignKey (id)</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica Bold">club_exterieur</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica Bold">ForeignKey (id)</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica Bold">poule</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica Bold">ForeignKey (id)</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">date</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">DateTimeField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">last_updated</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">DateTimeField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">localisation</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">CharField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">parsing_feuille_match</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">BooleanField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">score_club_domicile</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">IntegerField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">score_club_exterieur</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">IntegerField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">type_date</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">CharField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">url_feuille_match</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">CharField</FONT>
+      </TD></TR>
+    
+    
+      </TABLE>
+      >]
+  
+    ffhb_cal_app_models_Actions [label=<
+      <TABLE BGCOLOR="palegoldenrod" BORDER="0" CELLBORDER="0" CELLSPACING="0">
+      <TR><TD COLSPAN="2" CELLPADDING="4" ALIGN="CENTER" BGCOLOR="olivedrab4">
+      <FONT FACE="Helvetica Bold" COLOR="white">
+      Actions
+      </FONT></TD></TR>
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica Bold">id</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica Bold">AutoField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica Bold">joueur</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica Bold">ForeignKey (id)</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica Bold">match</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica Bold">ForeignKey (id)</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">action</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">CharField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">name</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">CharField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">score</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">CharField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">time</FONT>
       </TD><TD ALIGN="LEFT">
       <FONT FACE="Helvetica ">DateTimeField</FONT>
       </TD></TR>
@@ -975,14 +1295,35 @@ digraph model_graph {
 
   // Relations
 
+  ffhb_cal_app_models_PouleGen -> ffhb_cal_app_models_Competition
+  [label="competition (poulegen)"] [arrowhead=none, arrowtail=dot, dir=both];
+
+  ffhb_cal_app_models_Poule -> ffhb_cal_app_models_PouleGen
+  [label="poule_gen (poule)"] [arrowhead=none, arrowtail=dot, dir=both];
+
   ffhb_cal_app_models_Club -> ffhb_cal_app_models_Departement
   [label="departement (club)"] [arrowhead=none, arrowtail=dot, dir=both];
 
   ffhb_cal_app_models_Club -> ffhb_cal_app_models_Region
   [label="region (club)"] [arrowhead=none, arrowtail=dot, dir=both];
 
-  ffhb_cal_app_models_Poule -> ffhb_cal_app_models_ICSFile
-  [label="url (poule)"] [arrowhead=none, arrowtail=none, dir=both];
+  ffhb_cal_app_models_Club -> ffhb_cal_app_models_ICSFile
+  [label="ics_file (club)"] [arrowhead=none, arrowtail=none, dir=both];
+
+  ffhb_cal_app_models_Classement -> ffhb_cal_app_models_Poule
+  [label="poule (classement)"] [arrowhead=none, arrowtail=dot, dir=both];
+
+  ffhb_cal_app_models_Classement -> ffhb_cal_app_models_Club
+  [label="club (classement)"] [arrowhead=none, arrowtail=dot, dir=both];
+
+  ffhb_cal_app_models_ClassementButeurs -> ffhb_cal_app_models_Poule
+  [label="poule (classementbuteurs)"] [arrowhead=none, arrowtail=dot, dir=both];
+
+  ffhb_cal_app_models_ClassementButeurs -> ffhb_cal_app_models_Joueur
+  [label="joueur (classementbuteurs)"] [arrowhead=none, arrowtail=dot, dir=both];
+
+  ffhb_cal_app_models_ClassementButeurs -> ffhb_cal_app_models_Club
+  [label="club (classementbuteurs)"] [arrowhead=none, arrowtail=dot, dir=both];
 
   ffhb_cal_app_models_Match -> ffhb_cal_app_models_Club
   [label="club_domicile (domicile)"] [arrowhead=none, arrowtail=dot, dir=both];
@@ -991,13 +1332,13 @@ digraph model_graph {
   [label="club_exterieur (exterieur)"] [arrowhead=none, arrowtail=dot, dir=both];
 
   ffhb_cal_app_models_Match -> ffhb_cal_app_models_Poule
-  [label="poule (exterieur)"] [arrowhead=none, arrowtail=dot, dir=both];
+  [label="poule (match)"] [arrowhead=none, arrowtail=dot, dir=both];
 
-  ffhb_cal_app_models_ClubJoueur -> ffhb_cal_app_models_Club
-  [label="club (clubjoueur)"] [arrowhead=none, arrowtail=dot, dir=both];
+  ffhb_cal_app_models_Actions -> ffhb_cal_app_models_Match
+  [label="match (actions)"] [arrowhead=none, arrowtail=dot, dir=both];
 
-  ffhb_cal_app_models_ClubJoueur -> ffhb_cal_app_models_Joueur
-  [label="joueur (clubjoueur)"] [arrowhead=none, arrowtail=dot, dir=both];
+  ffhb_cal_app_models_Actions -> ffhb_cal_app_models_Joueur
+  [label="joueur (actions)"] [arrowhead=none, arrowtail=dot, dir=both];
 
   ffhb_cal_app_models_Buts -> ffhb_cal_app_models_Joueur
   [label="joueur (buts)"] [arrowhead=none, arrowtail=dot, dir=both];
