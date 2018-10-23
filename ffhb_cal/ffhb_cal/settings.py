@@ -90,7 +90,7 @@ WSGI_APPLICATION = 'ffhb_cal.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': conf.DICT_DB_ENGINE[conf.SYSTEM_DB],
+        'ENGINE': conf.SYSTEM_DB,
         'NAME': conf.DATABASE_NAME,
         'HOST': conf.HOST_DB,
         'PORT': conf.PORT_DB,
@@ -98,18 +98,6 @@ DATABASES = {
         'PASSWORD': conf.PASSWORD_DB
     }
 }
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'myproject',
-        'USER': 'myprojectuser',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
-
 
 # Import de la conf locale dans la conf globale de django
 HOST_FTP = conf.HOST_FTP
