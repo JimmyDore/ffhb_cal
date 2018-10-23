@@ -21,7 +21,7 @@ jimmydore@ubuntu:~/Projets$ cd ffhb_cal/
 3) Install python3 and virtualenv if not already done, and create a virtual env
 ```console
 jimmydore@ubuntu:~/Projets/ffhb_cal$ sudo apt-get install python3-venv
-jimmydore@ubuntu:~/Projets/ffhb_cal$ python3 -m venv ffhb_venv
+jimmydore@ubuntu:~/Projets/ffhb_cal$ python3 -m venv ffhb_venv # call it myvenv or ffhb_venv, easier for install script
 ```
 
 4) Create database in mysql
@@ -30,13 +30,13 @@ jimmydore@ubuntu:~/Projets/ffhb_cal$ mysql -u root -p
 mysql> create database if not exists ffhb_cal_db character set UTF8mb4 collate utf8mb4_bin;
 Query OK, 1 row affected (0.00 sec)
 mysql> exit;
+```
 
 5) Create conf.local.py from conf.py in django project folder
 ```console
 jimmydore@ubuntu:~/Projets/ffhb_cal/$ cd ffhb_cal/ffhb_cal
 jimmydore@ubuntu:~/Projets/ffhb_cal/ffhb_cal/ffhb_cal$ sudo cp conf.py conf.local.py
 jimmydore@ubuntu:~/Projets/ffhb_cal/ffhb_cal/ffhb_cal$ vim conf.local.py #Here, replace values with your own id/passwords...
-jimmydore@ubuntu:~/Projets/ffhb_cal/ffhb_cal/ffhb_cal$ sudo cp conf.local.py conf.py #now, the file conf.py has your own values
 ```
 > **Note:** **Never** push conf.local.py and push conf.py if only new fields in the file
 

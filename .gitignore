@@ -16,4 +16,4 @@ ffhb_cal/ffhb_cal/conf.local.py
 .vscode/
 hbcn_calendar.ics
 ffhb_cal/hbcn_calendar.ics
-myvenv/*
+myvenv/
