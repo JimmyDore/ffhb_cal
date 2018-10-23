@@ -24,6 +24,8 @@ else
     echo "no programms added to requirements.txt"
 fi
 
+
+#Doc for UML picture generation : https://django-extensions.readthedocs.io/en/latest/graph_models.html
 #----------------------------- UML CHART
 pwd
 echo "**** Git commit Hook : Check if the model has been updated"
