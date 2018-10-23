@@ -88,14 +88,32 @@ WSGI_APPLICATION = 'ffhb_cal.wsgi.application'
 #        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #    }
 
+# Custom dictionnary
+DICT_DB_ENGINE: {
+    'PostgreSQL': 'django.db.backends.postgresql_psycopg2',
+    'MySQL': 'django.db.backends.mysql',
+    'SQLite3': 'django.db.backends.sqlite3'
+}
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ffhb_cal_db',
-        'HOST': '127.0.0.1',  # Par défaut
-        'PORT': '3306',  # Par défaut
-        'USER': conf.USERNAME_MYSQL,
-        'PASSWORD': conf.PASSWORD_MYSQL,
+        'ENGINE': DICT_DB_ENGINE[conf.SYSTEM_DB],
+        'NAME': conf.DATABASE_NAME,
+        'HOST': conf.HOST_DB,
+        'PORT': conf.PORT_DB,
+        'USER': conf.USERNAME_DB,
+        'PASSWORD': conf.PASSWORD_DB
+    }
+}
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'myproject',
+        'USER': 'myprojectuser',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
