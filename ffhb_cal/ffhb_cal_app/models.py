@@ -80,6 +80,7 @@ class Classement(models.Model):
 
 
 class Joueur(models.Model):
+    ffhb_id = models.CharField(max_length=200, default='')  # Licence
     nom = models.CharField(max_length=200, default='')
     nb_goals = models.IntegerField(default=0)
     nb_matches = models.IntegerField(default=0)

@@ -1,6 +1,6 @@
 digraph model_graph {
   // Dotfile by Django-Extensions graph_models
-  // Created: 2018-10-23 15:49
+  // Created: 2018-10-23 17:36
   // Cli Options: -a
 
   fontname = "Helvetica"
@@ -492,6 +492,14 @@ digraph model_graph {
       <FONT FACE="Helvetica ">average</FONT>
       </TD><TD ALIGN="LEFT">
       <FONT FACE="Helvetica ">FloatField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Helvetica ">ffhb_id</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Helvetica ">CharField</FONT>
       </TD></TR>
     
     
