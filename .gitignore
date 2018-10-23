@@ -3,8 +3,17 @@ db.sqlite3
 media/*.*
 static/*.*
 static/*
+ffhb_cal/ffhb_cal_app/migrations/*.py
 */migrations
 *.pyc
 */.pyc
 */*.pyc
 ffhb_venv/*
+ffhb_cal/ffhb_cal/__pycache__/*.pyc
+ffhb_cal/ffhb_cal/__pycache__/*
+ffhb_cal/static
+ffhb_cal/ffhb_cal/conf.local.py
+.vscode/
+hbcn_calendar.ics
+ffhb_cal/hbcn_calendar.ics
+myvenv/*
