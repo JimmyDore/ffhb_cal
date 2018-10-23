@@ -14,3 +14,13 @@ PORT_DB = '5432'                     # '3306'
 
 # ---- CONF DEBUG
 DEBUG = True
+
+# DON'T TOUCH THIS
+# ----------------------------------------------------------------
+# Custom dictionnary
+DICT_DB_ENGINE: {
+    'PostgreSQL': 'django.db.backends.postgresql_psycopg2',
+    'MySQL': 'django.db.backends.mysql',
+    'SQLite3': 'django.db.backends.sqlite3'
+}
+# ----------------------------------------------------------------

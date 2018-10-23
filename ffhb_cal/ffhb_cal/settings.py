@@ -88,16 +88,9 @@ WSGI_APPLICATION = 'ffhb_cal.wsgi.application'
 #        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #    }
 
-# Custom dictionnary
-DICT_DB_ENGINE: {
-    'PostgreSQL': 'django.db.backends.postgresql_psycopg2',
-    'MySQL': 'django.db.backends.mysql',
-    'SQLite3': 'django.db.backends.sqlite3'
-}
-
 DATABASES = {
     'default': {
-        'ENGINE': DICT_DB_ENGINE[conf.SYSTEM_DB],
+        'ENGINE': conf.DICT_DB_ENGINE[conf.SYSTEM_DB],
         'NAME': conf.DATABASE_NAME,
         'HOST': conf.HOST_DB,
         'PORT': conf.PORT_DB,
