@@ -124,7 +124,11 @@ class Match(models.Model):
     last_updated = models.DateTimeField(
         'date last_parsing of the game', default='')
     url_feuille_match = models.CharField(max_length=500, default='')
+    # true or false, if the parsing of the feuille of the match has been done
     parsing_feuille_match = models.BooleanField(default=False)
+    # Quelle journée de la poule on parle (journée 1, du 15 au 17/09, par
+    # exemple)
+    journee = models.CharField(max_length=500, default='')
 
 
 class Actions(models.Model):

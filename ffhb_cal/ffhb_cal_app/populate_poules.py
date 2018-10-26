@@ -62,15 +62,40 @@ def getCompetitions():
     return competitions
 
 
-def getPouleGen(url_compet):
-    return 0
+def getPoulesGen(url_compet):
+    response = requests.get(url_compet)
+    soup = BeautifulSoup(response.text, "lxml")
+    liste_poules_gen = soup.find('ul', attrs={'class': 'chpts'})
+    rows = liste_poules_gen.find_all('li', recursive=False)
+
+    poules_gen = []
+
+    for row in rows:
+        nom = row.find('span').text.encode('utf-8')
+        url = BASE_URL + row.find('a')['href']
+        poules_gen.append([nom, url])
+
+    return poules_gen
 
 
 def getPoules(url_poule_gen):
+    # TODO : Check if multiple seasons
+    # TODO : Check if multiple poules in the page
+    response = requests.get(url_poule_gen)
+    soup = BeautifulSoup(response.text, "lxml")
+
     return 0
 
 
 if __name__ == '__main__':
-    competitions = getCompetitions()
-    for compet in competitions:
-        print(compet)
+    #competitions = getCompetitions()
+
+    # TODO : Save competition in DB
+    # TODO : Iterate on all competitions to get all poule gen
+
+    #poules_gen = getPoulesGen('http://www.ff-handball.org/competitions/championnats-departementaux/85-comite-de-la-vendee.html')
+
+    # TODO : Save poulegen in DB
+    # TODO : Iterate on all competitions to get all poule gen
+
+    poules = getPoules("http://www.ff-handball.org/competitions/championnats-departementaux/85-comite-de-la-vendee.html?tx_obladygesthand_pi1%5Bcompetition_id%5D=10818&cHash=df38231f13f8bd62a6260775bbba8f16")
