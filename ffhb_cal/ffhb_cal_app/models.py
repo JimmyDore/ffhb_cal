@@ -6,6 +6,8 @@ class Competition(models.Model):  # First page ffhb
     nom = models.CharField(max_length=200, default='')
     url = models.CharField(max_length=500, default='')
     type = models.CharField(max_length=3, default='')  # Nat, Dep, ou Reg
+    # 01 --> 96 (if Reg ou Nat --> 00 )
+    num_dep = models.CharField(max_length=3, default='')
 
 
 class PouleGen(models.Model):
