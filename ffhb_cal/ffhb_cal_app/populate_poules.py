@@ -15,6 +15,8 @@ from django.conf import settings
 
 import ftplib
 
+import datetime
+
 BASE_URL = 'http://www.ff-handball.org/'
 
 
@@ -78,17 +80,101 @@ def getPoulesGen(url_compet):
     return poules_gen
 
 
-def getPoules(url_poule_gen):
-    # TODO : Check if multiple seasons
-    # TODO : Check if multiple poules in the page
+def getSaisonPoules(url_poule_gen):
     response = requests.get(url_poule_gen)
     soup = BeautifulSoup(response.text, "lxml")
 
-    return 0
+    try:
+        saisons = soup.find(
+            'select', attrs={
+                'onchange': 'selectSaison(this);'}).find_all('option')
+    except AttributeError:
+        saisons = []
+
+    cleaned_seasons = []
+
+    if len(saisons) == 0:
+        # TODO - Find Good rule for season name : if month after august, start
+        # of the year, else end of the year
+        now = datetime.datetime.now()
+        if (now.month >= 8):
+            nom_saison = str(now.year) + '-' + str(now.year + 1)
+        else:
+            nom_saison = str(now.year - 1) + '-' + str(now.year)
+        cleaned_seasons.append(
+            {'nom_saison': nom_saison, 'url_saison': url_poule_gen})
+    else:
+        for saison in saisons:
+            nom_saison = saison.text.encode('utf-8')
+            url_saison = BASE_URL + saison['value']
+            cleaned_seasons.append(
+                {'nom_saison': nom_saison, 'url_saison': url_saison})
+
+    return cleaned_seasons
+
+
+def getSousPoules(url_saison, nom_poule_gen):
+    response = requests.get(url_saison)
+    soup = BeautifulSoup(response.text, "lxml")
+    poules = soup.find('select', attrs={'onchange': 'selectPhases(this);'})
+
+    try:
+        sous_poules_groupes = poules.find_all('optgroup')
+    except AttributeError:
+        sous_poules_groupes = []
+
+    cleaned_poules = []
+
+    if len(sous_poules_groupes) > 0:
+        for spg in sous_poules_groupes:
+            poules = spg.find_all('option')
+            for poule in poules:
+                poule_name = (
+                    spg['label'] +
+                    ' - ' +
+                    poule.text).encode('utf-8')
+                url_poule = BASE_URL + poule['value']
+                cleaned_poules.append(
+                    {'url_poule': url_poule, 'nom_poule': poule_name})
+    else:
+        try:
+            poules = poules.find_all('option')
+        except AttributeError:
+            poules = []
+
+        if len(poules) == 0:
+            cleaned_poules.append(
+                {'url_poule': url_saison, 'nom_poule': nom_poule_gen})
+        else:
+            for poule in poules:
+                if poule.text.encode('utf-8') != 'Sélectionner le championnat':
+                    poule_name = poule.text.encode('utf-8')
+                    url_poule = BASE_URL + poule['value']
+                    cleaned_poules.append(
+                        {'url_poule': url_poule, 'nom_poule': poule_name})
+
+    return cleaned_poules
+
+
+def getPoules(url_poule_gen, nom_poule_gen):
+    '''
+    Liste de liens pour tester :
+    - http://www.ff-handball.org/competitions/championnats-departementaux/85-comite-de-la-vendee.html?tx_obladygesthand_pi1%5Bcompetition_id%5D=10894&cHash=3e683ff504f9378636e6c00cebdbe3de
+    - http://www.ff-handball.org/competitions/championnats-nationaux/prod2/resultats.html
+    - http://www.ff-handball.org/competitions/championnats-regionaux/corse.html?tx_obladygesthand_pi1%5Bcompetition_id%5D=11795&cHash=356a7510711584e2fc2b7d7420467537
+    '''
+    saisons = getSaisonPoules(url_poule_gen)
+
+    for saison in saisons:
+        poules = getSousPoules(saison['url_saison'], nom_poule_gen)
+        for poule in poules:
+            poule['saison'] = saison['nom_saison']
+
+    return poules
 
 
 if __name__ == '__main__':
-    #competitions = getCompetitions()
+    competitions = getCompetitions()
 
     # TODO : Save competition in DB
     # TODO : Iterate on all competitions to get all poule gen
@@ -98,4 +184,8 @@ if __name__ == '__main__':
     # TODO : Save poulegen in DB
     # TODO : Iterate on all competitions to get all poule gen
 
-    poules = getPoules("http://www.ff-handball.org/competitions/championnats-departementaux/85-comite-de-la-vendee.html?tx_obladygesthand_pi1%5Bcompetition_id%5D=10818&cHash=df38231f13f8bd62a6260775bbba8f16")
+    # TODO : Think to replace "coucou_nom, par le nom de la poule générale"
+    poules = getPoules(
+        "http://www.ff-handball.org/competitions/championnats-regionaux/corse.html?tx_obladygesthand_pi1%5Bcompetition_id%5D=11795&cHash=356a7510711584e2fc2b7d7420467537",
+        "coucou_nom")
+    print(poules)

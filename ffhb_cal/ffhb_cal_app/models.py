@@ -23,6 +23,8 @@ class Poule(models.Model):
     start_date = models.DateTimeField(
         'date of the start of the poule', default='')
     end_date = models.DateTimeField('date of the end of the poule', default='')
+    # redundant with start and end date, but right now, only thing we can get
+    saison = models.CharField(max_length=30, default='')
     url = models.CharField(max_length=500, default='')
     # Nom du championnat dans la barre défilante
     name = models.CharField(max_length=200, default='')
